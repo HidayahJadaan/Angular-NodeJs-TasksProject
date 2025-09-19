@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CreateAccount } from '../context/DTOs';
+import { CreateAccount, Login } from '../context/DTOs';
 import { environment } from 'projects/user/src/environments/environment';
 
 @Injectable({
@@ -10,11 +10,15 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
+// =====================
+createUser(model:CreateAccount){
 
-  createUser(model:CreateAccount){
+  return this.http.post(environment.authApi + '/createAccount', model)
+}
+// =====================
+login(model:Login){
+  return this.http.post(environment.authApi + '/login', model)
 
-    return this.http.post(environment.baseApi + '/auth/createAccount', model)
-  }
-
+}
 
 }

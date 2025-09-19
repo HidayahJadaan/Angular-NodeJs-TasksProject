@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
- { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+//  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
   {
     path:'',
   loadChildren: () => import(`./dashboard/dashboard.module`).then(m => m.DashboardModule)

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
- {
+  {
 
     path:'',
     component:LayoutComponent,
@@ -14,11 +14,11 @@ const routes: Routes = [
       },
     ]
   },
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes )],
   exports: [RouterModule]
+  
 })
 export class DashboardRoutingModule { }
