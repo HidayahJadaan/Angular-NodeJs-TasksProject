@@ -35,12 +35,18 @@ const fileFilter = (req, file, cb) => {
     };
     
 
-    app.use(cors({
-  origin: 'http://localhost:4200', // during local dev
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     app.use(cors({
+//   origin: 'http://localhost:4200', // during local dev
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+
+app.use(cors({
+  origin: ['http://localhost:4200', 'https://angular-nodejs-tasksproject.onrender.com'],
+   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
     // app.use(bodyParser.urlencoded()); // x-www-form-urlencoded <form>
    // const specs = swaggerJsDoc(options);
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
