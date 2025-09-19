@@ -19,5 +19,11 @@ getUserTasks(userId:string, tasksParams:any){
   return this.http.get(environment.tasksApi + '/user-tasks/'+userId, {params})
 }
 // ==============================
+completeTask(model: object){
+
+  return this.http.put(environment.tasksApi + '/complete', model)
+}
+
+// ==============================
 
 }

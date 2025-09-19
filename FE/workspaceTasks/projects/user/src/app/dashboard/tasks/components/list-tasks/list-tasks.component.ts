@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { TasksService } from '../../services/tasks.service';
+import { ToastRef, ToastrService } from 'ngx-toastr';
 
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {status:'Complete' , title: 'Hydrogen', description: "1.0079", deadLineDate:"10-11-2022" },
@@ -21,7 +22,7 @@ import { TasksService } from '../../services/tasks.service';
   styleUrls: ['./list-tasks.component.scss']
 })
 export class ListTasksComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'title', 'user' ,'deadLineDate','status', 'actions'];
+  displayedColumns: string[] = ['position', 'title', 'user' ,'deadLine','status', 'actions'];
   dataSource :any = [];
   tasksFilter!:FormGroup
   users:any = [
@@ -35,12 +36,14 @@ export class ListTasksComponent implements OnInit {
   ]
   // ###########################################
 userData:any;
+totalItems:any;
   page:any = 1;
   selectedStatus:string = "In-Progress";
   // ###########################################
   constructor(public dialog: MatDialog ,
     private fb:FormBuilder,
-  private tasksServ:TasksService
+  private tasksServ:TasksService,
+  private toaster:ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -77,7 +80,10 @@ let params = {
 this.tasksServ.getUserTasks(this.userData.userId, params).subscribe((res:any)=>{
 
 this.dataSource = res.tasks;
+this.totalItems = res.totalItems
 
+}, error =>{
+  this.dataSource = [];
 })
 
 
@@ -85,10 +91,26 @@ this.dataSource = res.tasks;
   // ========================
 
 
-      changePage(event:any){
-this.page = event;
-// this.filteration['page'] = event;
-// this.getAllTasks()
+  changePage(event:any){
+    this.page = event;
+    // this.filteration['page'] = event;
+    this.getAllTasks()
 
-      }
+  }
+  // ========================
+
+  completeTask(ele:any){
+const MODEL = {
+  id:ele._id,
+}
+this.tasksServ.completeTask(MODEL).subscribe((res:any)=>{
+  this.getAllTasks();
+  this.toaster.success("Task Completed Successfully", 'success')
+
+})
+
+  }
+  // ========================
+
+
 }

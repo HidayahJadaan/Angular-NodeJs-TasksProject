@@ -30,7 +30,7 @@ toaster.error(error.error.message);
 
         if(error.error.message =='jwt expired' || error.error.message =='jwt must provided'){
 
-          this.router.navigate(['/login'])
+          this.router.navigate(['/auth/login'])
           localStorage.removeItem('token')
         }
         throw error;
