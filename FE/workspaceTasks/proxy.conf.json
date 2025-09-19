@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://angauthprojectcrud.onrender.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
