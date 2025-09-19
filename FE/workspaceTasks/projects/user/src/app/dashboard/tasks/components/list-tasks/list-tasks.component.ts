@@ -40,12 +40,17 @@ export class ListTasksComponent implements OnInit {
     {name:"Complete" , id:1},
     {name:"In-Prossing" , id:2},
   ]
+  // ###########################################
+
+  page:any = 1;
+  // ###########################################
   constructor(public dialog: MatDialog ,private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.createform()
   }
 
+  // ========================
   createform() {
     this.tasksFilter = this.fb.group({
       title:[''],
@@ -55,7 +60,17 @@ export class ListTasksComponent implements OnInit {
     })
   }
 
+  // ========================
   getAllTasks() {
 
   }
+  // ========================
+
+
+      changePage(event:any){
+this.page = event;
+// this.filteration['page'] = event;
+// this.getAllTasks()
+
+      }
 }

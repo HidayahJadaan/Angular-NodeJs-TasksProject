@@ -15,6 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -23,24 +24,24 @@ import { SharedModule } from './shared/shared.module';
    imports: [
     BrowserModule,
     MaterialModule,
-    // CoreModule,
+   
+    CoreModule,
     SharedModule,
     ToastrModule.forRoot(),
     FormsModule,
-    // NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
+    NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
     ReactiveFormsModule,
-    HttpClientModule,
     AppRoutingModule,
-    // NgxPaginationModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     TranslateModule.forRoot({
-      defaultLanguage:'en',
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
-  }),
-    BrowserAnimationsModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

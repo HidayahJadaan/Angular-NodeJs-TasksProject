@@ -29,4 +29,5 @@ export class LayoutComponent implements OnInit {
   logout() {
     localStorage.removeItem('token')
   }
+  
 }

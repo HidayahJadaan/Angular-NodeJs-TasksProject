@@ -1,0 +1,21 @@
+{
+  "tasks":{
+     "addTask":"إضافة مهمة",
+      "complete":"مُكتمل"
+
+  },
+  "users":{
+
+
+  },
+  "general":{
+    "loading":"..جاري التحميل"
+
+  },
+  "toaster":{
+
+  },
+  "buttons":{
+
+  }
+}
