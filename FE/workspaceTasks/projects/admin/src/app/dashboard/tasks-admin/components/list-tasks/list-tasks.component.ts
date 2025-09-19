@@ -7,12 +7,12 @@ import { TasksService } from '../../services/tasks.service';
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
-export interface PeriodicElement {
-  title: string;
-  user: string;
-  deadline: string;
-  status: string;
-}
+// export interface PeriodicElement {
+//   title: string;
+//   user: string;
+//   deadline: string;
+//   status: string;
+// }
 
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {status:'Complete' , title: 'Hydrogen', user: "1.0079", deadLineDate:"10-11-2022" },
@@ -46,6 +46,7 @@ export class ListTasksComponent implements OnInit {
   users: any = [
     { name: 'Moahmed', id: '68c83d679065078cfee51192' },
     { name: 'Ali', id: '68c8407d9065078cfee51195' },
+    { name: 'Test', id: '68cd7c15bbb934061fbe43ba' },
   ];
 
   status: any = [
@@ -136,6 +137,7 @@ mappingTasks(data: any[]) {
     const dialogRef = this.dialog.open(AddTaskComponent, {
       width: '750px',
       disableClose:true,
+      //  data: { users: this.users }
       // هون ممكن ابعتله جاتا واروح على الفورم واستقبلها
       // data:'#565656'
     });

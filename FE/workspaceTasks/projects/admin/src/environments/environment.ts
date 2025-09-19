@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   baseApi:'https://angular-nodejs-tasksproject.onrender.com',
     tasksApi: 'https://angular-nodejs-tasksproject.onrender.com/tasks',
-  authApi: 'https://angauthprojectcrud.onrender.com/auth'
+  authApi: 'https://angular-nodejs-tasksproject.onrender.com/auth'
+
 
 };
 

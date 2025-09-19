@@ -36,12 +36,14 @@ loginForm!:FormGroup
 
   login(){
     this.logService.login(this.loginForm.value).subscribe((res:any)=>{
+            localStorage.setItem('token', res.token)
+
       this.router.navigate(['/tasks']);
       this.toaster.success('success',"Login Successfully")
 
     })
 
-    console.log('success Login!');
+    // console.log('success Login!');
 
   }
   // =====================
