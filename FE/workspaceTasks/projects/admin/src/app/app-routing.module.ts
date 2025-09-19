@@ -8,7 +8,7 @@ const routes: Routes = [
   // {path:'users',
   // loadChildren: () => import(`./manage-users/manage-users.module`).then(m => m.ManageUsersModule)
   // },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
   {path:'',
   loadChildren: () => import(`./dashboard/dashboard.module`).then(m => m.DashboardModule)
   },
