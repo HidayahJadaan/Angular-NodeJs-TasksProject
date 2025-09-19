@@ -26,4 +26,8 @@ completeTask(model: object){
 
 // ==============================
 
+taskDetails(id:any){
+  return this.http.get(environment.tasksApi + '/task/'+id)
+}
+
 }

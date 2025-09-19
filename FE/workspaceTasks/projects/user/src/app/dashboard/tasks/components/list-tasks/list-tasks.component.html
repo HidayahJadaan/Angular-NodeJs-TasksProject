@@ -14,8 +14,10 @@
           <h2 class="card-title">{{item?.title}}</h2>
           <p class="card-subtitle mb-2 text-muted">Dead-Line Date : {{item?.deadline}}</p>
           <p class="card-text">{{item?.description }}</p>
-          <a  class="card-link"  mat-raised-button color="basic">Details</a>
-          <button  mat-raised-button color="warn" (click)="completeTask(item)">{{'tasks.complete' | translate}} </button>
+          <a  class="card-link"  mat-raised-button color="basic" routerLink="/tasks/{{item._id}}">Details</a>
+          <button  mat-raised-button color="warn"
+          (click)="completeTask(item)">
+            {{'tasks.complete' | translate}} </button>
         </div>
       </div>
     </div>
