@@ -34,11 +34,11 @@ this.taskId = res.params['id']
     })
   }
   // ======================
-    completeTask(){
-const MODEL = {
-  id: this.taskId,
-}
-this.tasksServ.completeTask(MODEL).subscribe((res:any)=>{
+  completeTask(){
+    const MODEL = {
+      id: this.taskId,
+    }
+    this.tasksServ.completeTask(MODEL).subscribe((res:any)=>{
   // this.getAllTasks();
 
   this.router.navigate(['/tasks'])
@@ -46,7 +46,8 @@ this.tasksServ.completeTask(MODEL).subscribe((res:any)=>{
 
 })
 
-  }
+}
+// ======================
 
 
 

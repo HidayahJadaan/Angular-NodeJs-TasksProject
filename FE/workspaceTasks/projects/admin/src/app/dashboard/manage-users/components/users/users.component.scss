@@ -1,9 +1,11 @@
 :host ::ng-deep {
     table {
+      text-align: center;
         thead {
             background-color: #bc1059!important;
             .mat-header-cell {
-                color: #FFF;
+              color: #FFF;
+              text-align: center;
             }
         }
     }

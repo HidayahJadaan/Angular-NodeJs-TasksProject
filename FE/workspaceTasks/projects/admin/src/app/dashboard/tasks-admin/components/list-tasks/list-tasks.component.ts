@@ -7,6 +7,7 @@ import { TasksService } from '../../services/tasks.service';
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
+import { UsersService } from '../../../manage-users/services/users.service';
 // export interface PeriodicElement {
 //   title: string;
 //   user: string;
@@ -43,12 +44,12 @@ export class ListTasksComponent implements OnInit {
   // dataSource = ELEMENT_DATA;
   dataSource: any = [];
   tasksFilter!: FormGroup;
-  users: any = [
-    { name: 'Moahmed', id: '68c83d679065078cfee51192' },
-    { name: 'Ali', id: '68c8407d9065078cfee51195' },
-    { name: 'Test', id: '68cd7c15bbb934061fbe43ba' },
-  ];
-
+  // users: any = [
+  //   { name: 'Moahmed', id: '68c83d679065078cfee51192' },
+  //   { name: 'Ali', id: '68c8407d9065078cfee51195' },
+  //   { name: 'Test', id: '68cd7c15bbb934061fbe43ba' },
+  // ];
+users: any =[]
   status: any = [
     { name: this.translate.instant("tasks.complete") },
     { name: 'In-Progress'},
@@ -74,13 +75,18 @@ timeOutId:any;
     private tasksServ: TasksService,
     // private sppinner: NgxSpinnerService,
     private toaster: ToastrService,
-    private translate:TranslateService
-  ) {}
+    private translate:TranslateService,
+    private usersServ:UsersService
+  ) {
+
+    this.getDataFromSubject()
+  }
 
 
 
   ngOnInit(): void {
     // this.createform()
+    this.getUsers()
     this.getAllTasks();
   }
 
@@ -92,6 +98,22 @@ timeOutId:any;
   //     toDate:['']
   //   })
   // }
+  // =======================================================
+
+  getUsers(){
+    this.usersServ.getUsersData()
+  }
+  // =======================================================
+
+  getDataFromSubject(){
+  this.usersServ.userData.subscribe((res:any)=>{
+    // this.users = res.data
+    this.users = this.usersMapping(res.data)
+    // this.totalItems = res.total
+  })
+}
+
+
   // =======================================================
 
   getAllTasks() {
@@ -223,12 +245,24 @@ this.filteration['page'] = 1;
     // =======================================================
 
 
-      changePage(event:any){
-this.page = event;
-this.filteration['page'] = event;
-this.getAllTasks()
+    changePage(event:any){
+      this.page = event;
+      this.filteration['page'] = event;
+      this.getAllTasks()
 
-      }
+    }
+    // =======================================================
+    usersMapping(data:any[]){
+      let newArr = data?.map(item =>{
 
+        return {
+          name:item.username,
+          id:item._id
+
+        }
+      })
+      return newArr
+    }
+    // =======================================================
 
 }

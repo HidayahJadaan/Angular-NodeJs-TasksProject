@@ -10,6 +10,7 @@ import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 // import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
+import { UsersService } from '../../../manage-users/services/users.service';
 
 @Component({
   selector: 'app-add-task',
@@ -25,15 +26,20 @@ export class AddTaskComponent implements OnInit {
     public matDialog: MatDialog,
     private tasksService: TasksService,
     private toaster: ToastrService,
+    private usersServ:UsersService
     // private spinner: NgxSpinnerService
-  ) {}
+  ) {
 
-  users: any = [
-    { name: 'Moahmed', id: '68c83d679065078cfee51192' },
-    { name: 'Ali', id: '68c8407d9065078cfee51195' },
-        { name: 'Test', id: '68cd7c15bbb934061fbe43ba' },
+    this.getDataFromSubject()
+  }
 
-  ];
+  // users: any = [
+  //   { name: 'Moahmed', id: '68c83d679065078cfee51192' },
+  //   { name: 'Ali', id: '68c8407d9065078cfee51195' },
+  //       { name: 'Test', id: '68cd7c15bbb934061fbe43ba' },
+
+  // ];
+users:any =[];
 
   newTaskForm!: FormGroup;
   fileName = '';
@@ -189,4 +195,32 @@ export class AddTaskComponent implements OnInit {
     }
 
   }
+
+
+  // =======================================================
+  getDataFromSubject(){
+  this.usersServ.userData.subscribe((res:any)=>{
+    // this.users = res.data
+    this.users = this.usersMapping(res.data)
+    // this.totalItems = res.total
+  })
+}
+
+
+  // =======================================================
+
+      // =======================================================
+    usersMapping(data:any[]){
+      let newArr = data?.map(item =>{
+
+        return {
+          name:item.username,
+          id:item._id
+
+        }
+      })
+      return newArr
+    }
+    // =======================================================
+
 }
