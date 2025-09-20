@@ -42,7 +42,7 @@ const fileFilter = (req, file, cb) => {
 // }));
 
 app.use(cors({
-  origin: ['http://localhost:4200', 'https://angular-nodejs-tasksproject.onrender.com'],
+  origin: ['http://localhost:4200','http://localhost:5200', 'https://angular-nodejs-tasksproject.onrender.com'],
    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
