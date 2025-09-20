@@ -36,7 +36,7 @@ registerForm!:FormGroup;
 
   }
   // =========================
-  createAcountReg(){
+  createAccountReg(){
 
     let model:CreateAccount = {
       username:this.registerForm.value['username'],
