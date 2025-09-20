@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,7 +10,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class LayoutComponent implements OnInit {
 
   lang:any ="en";
-  constructor(private translate:TranslateService) {
+  constructor(private translate:TranslateService,
+    private router:Router
+  ) {
     this.lang = translate.currentLang
    }
 
@@ -27,6 +30,11 @@ window.location.reload()
 
   }
 
-
+// =======================================================
+logout(){
+this.router.navigate(['/login'])
+localStorage.removeItem('token')
+}
+// =======================================================
 
 }
