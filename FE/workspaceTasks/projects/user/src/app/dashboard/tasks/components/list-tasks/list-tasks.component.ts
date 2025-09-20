@@ -22,7 +22,7 @@ import { ToastRef, ToastrService } from 'ngx-toastr';
   styleUrls: ['./list-tasks.component.scss']
 })
 export class ListTasksComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'title', 'user' ,'deadLine','status', 'actions'];
+  displayedColumns: string[] = ['position', 'title', 'user' ,'deadline','status', 'actions'];
   dataSource :any = [];
   tasksFilter!:FormGroup
   users:any = [

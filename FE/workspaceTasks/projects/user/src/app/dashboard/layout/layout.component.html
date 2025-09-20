@@ -1,23 +1,23 @@
-<nav class=" navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <div class="navbar-brand" >Tasks</div>
+<nav class="navbar-glass">
+  <div class="navbar-container container d-flex justify-content-between align-items-center">
+    <!-- Brand -->
+    <div class="navbar-brand">{{'general.tasksMaster' |translate }}</div>
 
-      <div class="collapse  navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/tasks" routerLinkActive="active">All-Tasks <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-       <div class="nav-item d-flex">
-        <a class="nav-link" routerLink="auth/login" (click)="logout()">Logout</a>
-        <a class="nav-link" (click)="changeLanguage()"> {{lang == 'en' ? 'عربي' : "English" }} </a>
-       </div>
-      </div>
+    <!-- Links -->
+    <ul class="navbar-links d-flex gap-4 m-0 p-0 list-unstyled">
+      <li>
+        <a routerLink="/tasks" routerLinkActive="active" class="nav-link">{{'general.allTasks' |translate }}</a>
+      </li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="navbar-actions d-flex gap-3">
+      <a class="action-link" routerLink="auth/login" (click)="logout()">{{'general.logout' |translate }}</a>
+      <a class="action-link" (click)="changeLanguage()">{{lang == 'en' ? 'عربي' : 'English'}}</a>
     </div>
-
-  </nav>
-
-  <div class="container">
-    <router-outlet></router-outlet>
   </div>
-  
+</nav>
+
+<div class="content-container container">
+  <router-outlet></router-outlet>
+</div>

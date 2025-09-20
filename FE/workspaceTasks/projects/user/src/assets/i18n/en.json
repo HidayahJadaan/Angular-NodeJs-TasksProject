@@ -1,14 +1,23 @@
 {
   "tasks":{
     "addTask":"Add Task",
-    "complete":"Complete"
+    "complete":"Complete",
+          "details":"Details",
+          "deadline":"DeadLine Date"
+
+
 
   },
   "users":{
 
   },
   "general":{
-    "loading":"Loading.."
+    "loading":"Loading..",
+    "tasksMaster":"TasksMaster",
+        "allTasks":"All Tasks",
+        "logout":"Logout",
+        "tasksList":"Tasks List"
+
 
   },
   "toaster":{

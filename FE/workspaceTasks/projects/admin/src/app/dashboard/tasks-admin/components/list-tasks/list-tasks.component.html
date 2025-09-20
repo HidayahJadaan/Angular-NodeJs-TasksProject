@@ -1,9 +1,5 @@
 <div class="mt-4">
-  <div class="d-flex justify-content-end">
-    <button class="addTask" mat-raised-button (click)="addTask()">
-     {{'tasks.addTask' | translate }}
-    </button>
-  </div>
+
 
   <form>
     <div class="row mt-3">
@@ -49,6 +45,15 @@
       </div>
     </div>
   </form>
+
+
+ <div class="d-flex justify-content-end">
+    <button class="addTask" mat-raised-button (click)="addTask()">
+     {{'tasks.addTask' | translate }}
+    </button>
+  </div>
+
+
   <div class="listBox">
     <table
       mat-table

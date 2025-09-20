@@ -2,7 +2,7 @@ button {
   color: #fff;
   margin: 0 5px;
   &.addTask {
-    background-color: #ca085a;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
     color: #fff;
     padding: 2px 23px;
     font-size: 20px;
@@ -20,7 +20,7 @@ table {
 :host ::ng-deep {
   table {
     thead {
-      background-color: #bc1059 !important;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
       .mat-header-cell {
         color: #fff;
       }

@@ -1,7 +1,9 @@
 {
   "tasks":{
      "addTask":"إضافة مهمة",
-      "complete":"مُكتمل"
+      "complete":"مُكتمل",
+      "details":"تفاصيل",
+       "deadline":"تاريخ الانتهاء"
 
   },
   "users":{
@@ -9,7 +11,12 @@
 
   },
   "general":{
-    "loading":"..جاري التحميل"
+    "loading":"..جاري التحميل",
+    "tasksMaster":"مدير المهمات",
+    "allTasks":"كل المهمات",
+     "logout":"تسجيل الخروج",
+             "tasksList":"كل المهام"
+
 
   },
   "toaster":{

@@ -1,18 +1,74 @@
-nav {
-    background-color: #ca085a;
-    .navbar-brand {
-        font-size: 27px;
-        font-weight: bold;
-        color: #e3d510!important;
+/* Navbar with glassmorphism */
+.navbar-glass {
+  width: 100%;
+  // background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+ color: #fff;
+  backdrop-filter: blur(12px);
+  // box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 2px;
+  margin: 0 1rem;
+  z-index: 1000;
+  transition: 0.3s;
+}
 
-    }
-    a {
-        font-size: 20px;
-        color: #FFF!important;
-        //padding: 7px 20px;
-        &.active  {
-            background-color: #910340;
-            color: #FFF;
-        }
-    }
+/* Hover effect for navbar */
+.navbar-glass:hover {
+  // background: rgba(255, 255, 255, 0.25);
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+ color: #fff;
+}
+
+/* Navbar brand */
+.navbar-brand {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #6a11cb;
+  background: linear-gradient(90deg, #ff758c, #ff7eb3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navbar links */
+.navbar-links li .nav-link {
+ color: #fff;
+   font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.navbar-links li .nav-link:hover,
+.navbar-links li .nav-link.active {
+  background: linear-gradient(90deg, #ff758c, #ff7eb3);
+  color: #fff;
+}
+
+/* Action links */
+.navbar-actions .action-link {
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+}
+
+.navbar-actions .action-link:hover {
+  background: linear-gradient(90deg, #ff758c, #ff7eb3);
+  color: #fff;
+}
+
+/* Content container */
+.content-container {
+    background: linear-gradient(135deg, #f7f7f7, #e0e0ff);
+  margin-top: 2rem;
+  padding: 2rem;
+  min-height: calc(100vh - 100px);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
